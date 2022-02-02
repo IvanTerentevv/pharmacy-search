@@ -11,7 +11,4 @@ toponym_to_find = " ".join(sys.argv[1:])
 map_params = find.params(toponym_to_find, find.pharmacy(toponym_to_find))
 response = requests.get(map_api_server, params=map_params)
 
-map_file = "map.png"
-open(map_file, "wb").write(response.content)
-
 Image.open(BytesIO(response.content)).show()
